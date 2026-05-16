@@ -1,0 +1,23 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const games: Array<{ slug: string; title: string; description: string }> = [];
+---
+
+<BaseLayout title="Games — Nicola Dal Maso" description="Browser-based games">
+  <section class="space-y-4">
+    <h1 class="text-3xl font-bold">Games</h1>
+    {games.length === 0 ? (
+      <p class="text-neutral-700 dark:text-neutral-300">No games yet.</p>
+    ) : (
+      <ul class="space-y-2">
+        {games.map((g) => (
+          <li>
+            <a class="underline" href={`/games/${g.slug}`}>{g.title}</a>
+            <p class="text-sm text-neutral-500">{g.description}</p>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+</BaseLayout>

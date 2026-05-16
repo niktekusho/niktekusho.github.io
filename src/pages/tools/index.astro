@@ -1,0 +1,23 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const tools: Array<{ slug: string; title: string; description: string }> = [];
+---
+
+<BaseLayout title="Tools — Nicola Dal Maso" description="Browser-based tools">
+  <section class="space-y-4">
+    <h1 class="text-3xl font-bold">Tools</h1>
+    {tools.length === 0 ? (
+      <p class="text-neutral-700 dark:text-neutral-300">No tools yet.</p>
+    ) : (
+      <ul class="space-y-2">
+        {tools.map((t) => (
+          <li>
+            <a class="underline" href={`/tools/${t.slug}`}>{t.title}</a>
+            <p class="text-sm text-neutral-500">{t.description}</p>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+</BaseLayout>

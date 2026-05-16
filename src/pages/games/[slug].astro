@@ -1,0 +1,17 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  const games: Array<{ slug: string; title: string }> = [];
+  return games.map((g) => ({ params: { slug: g.slug }, props: { title: g.title } }));
+}
+
+const { title } = Astro.props as { title: string };
+---
+
+<BaseLayout title={`${title} — Games`}>
+  <section class="space-y-4">
+    <h1 class="text-3xl font-bold">{title}</h1>
+    <p class="text-sm text-neutral-500">TODO: mount game island here.</p>
+  </section>
+</BaseLayout>
